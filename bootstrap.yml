@@ -37,34 +37,37 @@
     - role: openskyimager
       become: true
   tasks:
-    - name: Run novnc
-      docker_container:
-        name: novnc
-        image: novnc
-        pull: false
-        published_ports:
-          - "6080:6080"
-      become: true
-
-    - name: Run lin_guider
-      docker_container:
-        name: lin_guider
-        image: lin_guider
-        pull: false
-        published_ports:
-          - "5901:5900"
-          - "6101:6100"
-      become: true
-
-    - name: Run phd2
-      docker_container:
-        name: phd2
-        image: phd2
-        pull: false
-        published_ports:
-          - "5902:5900"
-          - "6102:6100"
-      become: true
+#    - name: Run novnc
+#      docker_container:
+#        name: novnc
+#        image: novnc
+#        pull: false
+#        published_ports:
+#          - "6080:6080"
+#        restart_policy: always
+#      become: true
+#
+#    - name: Run lin_guider
+#      docker_container:
+#        name: lin_guider
+#        image: lin_guider
+#        pull: false
+#        published_ports:
+#          - "5901:5900"
+#          - "6101:6100"
+#        restart_policy: always
+#      become: true
+#
+#    - name: Run phd2
+#      docker_container:
+#        name: phd2
+#        image: phd2
+#        pull: false
+#        published_ports:
+#          - "5902:5900"
+#          - "6102:6100"
+#        restart_policy: always
+#      become: true
 
     - name: Run openskyimager
       docker_container:
@@ -74,4 +77,5 @@
         published_ports:
           - "5903:5900"
           - "6103:6100"
+        restart_policy: always
       become: true
